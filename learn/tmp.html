@@ -1,0 +1,2486 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="CNKI远见搜索,文献,期刊,硕士,论文,博士,论文,会议,报纸,年鉴,专利,成果,标准,参考文献,图片,学术,研究,报告,文章,专业检索,下载,职称" />
+    <meta name="description" content="CNKI远见搜索，是中国知网（CNKI）旗下的专业学术搜索平台，资源囊括了期刊、博士论文、硕士论文、工具书、专利、标准、学术图片、科技成果、知网书等资源，提高一框式快捷搜索与高级搜索等专业检索功能，提供在线阅读与下载服务。" />
+    <title>综合搜索_远见搜索</title>
+    <link href="/Content/base?v=AnhS847xbJzC0vGdCEUXWKyP12BtXdqY16O6WGxwcHA1" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+
+
+    <script src="/Scripts/layer/layer.js"></script>
+
+    <script src="/Scripts/datetimepicker/WdatePicker.js"></script>
+
+    <script src="/Scripts/jquery.cookie.js"></script>
+
+    <script src="/Scripts/main.js"></script>
+
+    <script src="/Scripts/msgbox.js"></script>
+
+    
+    <style>
+        .head-fen .search-item .choose .selectwrap .select .kj {
+            float: left;
+            border: none 0;
+            width: 460px;
+            padding-left: 6px;
+            height: 36px;
+            line-height: 36px;
+            font-size: 14px;
+        }
+    </style>
+    <script src="/Scripts/echarts/source/echarts-min.js?v=010904"></script>
+
+    <script>
+        var jsPublicKey = '-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8iKgnXm7hTxEr9FcZtBk/xbL8JwSeGpgpGMdd7TgBIARcWXhYeGRP428QYb8//Buls3ZLJAbc4Z8HxFP5yvVMksQEBkR5NyN2Jx3i83jUDX/STLy9ZhCBskNBt1zqtTRw4eEjvmsP5iZ4PyQUXUttyY2Mbjb9AZl87lTlrDCRQwIDAQAB-----END PUBLIC KEY-----';
+    </script>
+    <style>
+        .bk-box .bk-box a img { vertical-align: middle; max-width: 100px; max-height: 100px; width: expression(this.width > 100 && this.width / 100 >= this.height / 100 ? 100 : true); height: expression(this.height > 100 && this.width / 100 < this.height / 100 ? 100 : true); }
+
+        .head-fen .search-item .result-nav { background-position: 546px 25px; }
+
+        .head-fen .search-item .result-nav a { padding: 0 6px; }
+        /*头部种类样式*/
+        .filtrate .itemm { z-index: 1; }
+
+        /*.yj-ewm {
+            margin-top: -30px;
+            margin-left: 117px;
+        }*/
+    </style>
+</head>
+<body class="springBg">
+    <a id="closeSpringBg" href="javascript:void(0)" class="closeSpringBg"></a>
+    <!--head-->
+    <input type="hidden" name="name" id="pageUrl" value="http://yuanjian.cnki.com.cn" />
+    <input type="hidden" name="hidAMID" id="hidAMID" value="" />
+    <div class="head-wrap">
+        <div class="head-fen clearfix">
+            <div class="head-logo left"><a href="/"><img src="http://yuanjian.cnki.com.cn/images/result/result_logo.jpg" width="115" height="40" /></a></div>
+            <div class="search-item left">
+                
+<div class="result-nav  positionR" id="topSearchNav">
+    <a onclick="checkClick(this)" href="/home" class="active" data-code="0">全部</a>|<a onclick="    checkClick(this)" href="/home/?type=corpus" class="" data-code="1">文献</a>|<a onclick="checkClick(this)" href="/cjfd/Home" class="" data-code="3">期刊</a>|<a onclick="checkClick(this)" href="/cdmd/home" class="" data-code="4">学位论文</a>|<a onclick="checkClick(this)" href="http://bianke.cnki.net/" class="" data-code="8" target="_blank">知网书</a>|<a href="/Image/home/index" data-code="9" onclick="checkClick(this)">学术图片</a>|<a onclick="checkClick(this)" href="http://xuewen.cnki.net" class="" data-code="2" target="_blank">百科</a>|<a onclick="checkClick(this)" href="http://epub.cnki.net/kns/brief/result.aspx?dbPrefix=CIPD" class="" data-code="5" target="_blank">会议</a>|<a href="javascript:void(0)" class="more">更多</a>
+    <ul class="positionA">
+        <li class="jiao positionA"></li>
+        
+        
+        <li><a onclick="checkClick(this)" href="http://epub.cnki.net/kns/brief/result.aspx?dbPrefix=CYFD" class="" data-code="6" target="_blank">年鉴</a></li>
+        <li><a onclick="checkClick(this)" href="http://epub.cnki.net/kns/brief/result.aspx?dbPrefix=SCOD" class="" data-code="7" target="_blank">专利</a></li>
+        <li class="nborder"><a href="http://epub.cnki.net/kns/brief/result.aspx?dbPrefix=CISD" target="_blank">标准</a></li>
+        <li><a href="http://epub.cnki.net/KNS/brief/result.aspx?dbprefix=SNAD" target="_blank">科技成果</a></li>
+    </ul>
+</div>
+            <div id="QuickSearch" class="clearfix choose displayN positionR">
+                <div class="xiugai clearfix">
+                    <div class="btn" id="btn">
+                        <a class="add" href="javascript:void(0)"></a>
+                    </div>
+                    <div class="selectwrap" id="selectwrap">
+                        <div class="select">
+                            <input id="textSearchKey" class="left kj MulSerchKey" type="text" name="content" autocomplete="off" value="" maxlength="100" />
+                                <a class="positionA sweep" href="javascript:void(0)" style="display:none;"></a>
+                            <!--提示词显示区域-->
+                            <div class="history">
+                            </div>
+                        </div>
+                        <div class="searchwrap positionA">
+                            <a class="search" href="javascript:void(0)" id="search" onclick="QuickSearch()">远见搜索</a>                      
+                                <a href="javascript:;" class="yj-ewm left"><img class="yj-ewm-img" src="/Images/home/yj-ewm-img.png" height="158" width="125" alt=""></a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div id="MultiTermSearch" class="clearfix choose  positionR">
+                    <div class="xiugai clearfix word5">
+                        <div class="btn" id="btn">
+                                <a class="remove displayN" onclick="removeSearchboxItems(this)" href="javascript:void(0)"></a>
+                                <a class="add" onclick="addMulitySearchboxItems(this)" href="javascript:void(0)"></a>
+                        </div>
+                        <div class="selectwrap" id="selectwrap">
+                            <div class="select ">
+                                <p class="item" data-code="originate"> 文献来源 </p>
+                                <input name="originate" class="left MulSerchKey" autocomplete="off" type="text" value="情报学报" style="" maxlength="100" />
+                                    <a class="positionA sweep" href="javascript:void(0)" style="display:block;"></a>
+                                <!--提示词显示区域-->
+                                <div class="history advance">
+                                </div>
+                                <div class="yearwrap displayN">
+                                    <div class="fromwrap left positionR">
+                                        <i class="left">从</i>
+                                        <p class="p from right positionR">
+                                                <b>不&nbsp;&nbsp;限</b>
+                                                <span class="positionA"></span>
+                                        </p>
+                                        <ul class="fromlist positionA displayN">
+                                            <li>不&nbsp;&nbsp;限</li>
+                                            <li>1915年</li>
+                                            <li>1949年</li>
+                                            <li>1979年</li>
+                                        </ul>
+                                    </div>
+                                    <div class="towrap left positionR">
+                                        <i class="left">到</i>
+                                        <p class="p to right positionR">
+                                                <b>不&nbsp;&nbsp;限</b>
+                                                <span class="positionA"></span>
+                                        </p>
+                                        <ul class="tolist positionA displayN">
+                                            <li class="ndy">不&nbsp;&nbsp;限</li>
+                                            <li>1979年</li>
+                                            <li>1949年</li>
+                                            <li>1915年</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="itemlist">
+                                    <li val="content">全&nbsp;&nbsp;文</li>
+                                    <li val="theme">主&nbsp;&nbsp;题</li>
+                                    <li val="title">篇&nbsp;&nbsp;名</li>
+                                    <li val="keyword">关键词</li>
+                                    <li val="author">作&nbsp;&nbsp;者</li>
+                                    <li val="unit">作者单位</li>
+                                    <li val="summary">摘&nbsp;&nbsp;要</li>
+                                    <li val="reference">参考文献</li>
+                                    <li val="searchfund">基&nbsp;&nbsp;金</li>
+                                    <li val="originate">文献来源</li>
+                                    <li val="publishtime" class="fbsj">发表时间</li>
+                                    <li val="mapnumber">中图分类号</li>
+                                </ul>
+                            </div>
+                            <div class="searchwrap positionA ">
+                                <a class="search" href="javascript:void(0)" id="search" onclick="Search()">远见搜索</a> 
+                                <a href="javascript:;" class="yj-ewm left"><img class="yj-ewm-img" src="/Images/home/yj-ewm-img.png" height="158" width="125" alt=""></a>                             
+                                    <a href="javascript:void(0)" style="right:-105px;padding-bottom:8px;" class="positionA gj kuaijie">快捷搜索</a>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+
+
+
+<!--高级搜索页面布局模板  程序不对该内容修改-->
+<div id="searchHtmlTemplate" class="displayN">
+    <div class="xiugai clearfix word5">
+        <div class="btn" id="btn">
+            <a class="remove DISPALYITEM" onclick="removeSearchboxItems(this)" href="javascript:void(0)"></a>
+            <a class="add" onclick="addMulitySearchboxItems(this)" href="javascript:void(0)"></a>
+        </div>
+        <div class="selectwrap" id="selectwrap">
+            <div class="select">
+                <p class="item">全&nbsp;&nbsp;文</p>
+                <input class="left MulSerchKey" name="" type="text" autocomplete="off" value="" maxlength="100" />
+                    <a class="positionA sweep" href="javascript:void(0)" style="display:none;"></a>
+                <!--提示词显示区域-->
+                <div class="history advance">
+                </div>
+                <div class="yearwrap displayN">
+                    <div class="fromwrap left positionR">
+                        <i class="left">从</i><p class="p from right positionR"><b>不&nbsp;&nbsp;限</b><span class="positionA"></span></p>
+
+                        <ul class="fromlist positionA">
+                            <li>不&nbsp;&nbsp;限</li>
+                            <li>1915年</li>
+                            <li>1949年</li>
+                            <li>1979年</li>
+                        </ul>
+                    </div>
+                    <div class="towrap left positionR">
+                        <i class="left">到</i><p class="p to right positionR"><b>不&nbsp;&nbsp;限</b><span class="positionA"></span></p>
+
+                        <ul class="tolist positionA">
+                            <li class="ndy">不&nbsp;&nbsp;限</li>
+                            <li>1979年</li>
+                            <li>1949年</li>
+                            <li>1915年</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="itemlist">
+                        <li val="content">全&nbsp;&nbsp;文</li>
+                        <li val="theme">主&nbsp;&nbsp;题</li>
+                        <li val="title">篇&nbsp;&nbsp;名</li>
+                        <li val="keyword">关键词</li>
+                        <li val="author">作&nbsp;&nbsp;者</li>
+                        <li val="unit">作者单位</li>
+                        <li val="summary">摘&nbsp;&nbsp;要</li>
+                        <li val="reference">参考文献</li>
+                        <li val="searchfund">基&nbsp;&nbsp;金</li>
+                        <li val="originate">文献来源</li>
+                        <li val="publishtime" class="fbsj">发表时间</li>
+                        <li val="mapnumber">中图分类号</li>
+                </ul>
+            </div>
+            <div class="searchwrap positionA">
+                    <a class="search" href="javascript:void(0)" id="search" onclick="Search()">远见搜索</a>
+    <a href="javascript:;" class="yj-ewm left"><img class="yj-ewm-img" src="/Images/home/yj-ewm-img.png" height="158" width="125" alt=""></a>
+                                    <a href="javascript:void(0)" style="right:-105px;padding-bottom:8px;" class="positionA gj">快捷搜索</a>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+            <div class="headfen-right right positionR" id="login-head">
+                <a style="cursor:pointer;" class="top-ewm positionR">手机远见搜索<img style="top:18px;" class="yj-ewm-img" src="/Images/home/yj-ewm-img.png" height="158" width="125" alt="" /></a>
+
+                
+                <i class="left">|</i><span class="sz left"><a style="cursor:pointer;">设置</a></span>
+                <ul class="positionA">
+                    <li class="jiao positionA"></li>
+                    <li id="ShutDownHistory" onclick="shutDownHistory()">关闭历史记录</li>
+                    <li id="OpenHistory" onclick="openHistory()">打开历史纪录</li>
+                    <li onclick="clearHistory()">清除历史记录</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/searchArticle.js"></script>
+
+    <!--content-->
+    <div id="PageContent">
+        
+
+
+<input type="hidden" name="name" id="ArticleType" value="0" />
+<input type="hidden" name="ScholarUrl" id="ScholarUrl" value="http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=" />
+<input type="hidden" name="InstitutionUrl" id="InstitutionUrl" value="http://yuanjian.cnki.com.cn/Institution/Index?Organization=" />
+<input type="hidden" name="DomainSearch" value="http://yuanjian.cnki.com.cn">
+<!--0 学科  1 作者 2 机构,3 导师  4 搜索结果页(search/result)-->
+<input type="hidden" id="source" value="4" />
+<input type="hidden" id="ScholarCode" value="情报学报," />
+<div class="resault-cont clearfix">
+    <div class="citeBtn">引用</div>
+    <div class="cont-left left cont-left-wide" style="overflow:hidden;">
+        <div class="filtrate-wrap">
+            <div class="filtrate">
+                <div class="ti">筛选：</div>
+                <div class="itemm" data-field="Type" style="z-index:1;">
+                    <span class="see1">文献类型</span>
+                    <span class="see2">文献类型</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="Subject" style="z-index:1;">
+                    <span class="see1">学科分类</span>
+                    <span class="see2">学科分类</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="Year" style="z-index:1;">
+                    <span class="see1">发表年度</span>
+                    <span class="see2">发表年度</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="AuthorFilter" style="z-index:1;">
+                    <span class="see1">作者</span>
+                    <span class="see2">作者</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="Organization" style="z-index:1;">
+                    <span class="see1">机构</span>
+                    <span class="see2">机构</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="Fund" style="z-index:1;">
+                    <span class="see1">基金</span>
+                    <span class="see2">基金</span>
+                </div>
+                <div class="line1"></div>
+                <div class="itemm" data-field="Level" style="z-index:1;">
+                    <span class="see1">研究层次</span>
+                    <span class="see2">研究层次</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="filter_Type" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_Subject" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_Year" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_AuthorFilter" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_Organization" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_Fund" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+        <div id="filter_Level" class="pop2 pop2-wide clearfix positionR" style="display: none;">
+        </div>
+
+        <div class="yx clearfix" style="display:none">
+            <span class="bt left">已选：</span>
+        </div>
+
+        <div class="px clearfix">
+            <span class="bt left">排序：</span>
+            <div class="rank left">
+                <p>按相关度排序</p>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="Order(1);">按相关度排序</a></li>
+                    <li><a href="javascript:void(0)" onclick="Order(2);">按发表时间排序</a></li>
+                    <li><a href="javascript:void(0)" onclick="Order(3);">按下载次数排序</a></li>
+                    <li><a href="javascript:void(0)" onclick="Order(4);">按被引次数排序</a></li>
+                </ul>
+                <input type="hidden" id="orderNum" value="1" />
+            </div>
+
+            <div class="mode left clearfix">
+                <span class="bt left">显示：</span>
+                <a onclick="Showzyxz();" id="amodelsmmary" class="lb left" title="摘要显示" style="cursor:pointer;"></a>
+                <a onclick="Showli(); " id="amodellist" class="zyxz left" title="列表显示" style="cursor:pointer;"></a>
+            </div>
+            <div class="count right">CNKI为你找到相关结果<i id="totalcount"></i>条</div>
+        </div>
+        <input type="hidden" id="showType" name="name" value="0" />
+        <input type="hidden" id="hidCurrentPage" value="1" />
+        <input type="hidden" id="hidTotalPageCount" value="1" />
+        <div class="re-list">
+            <div class="list-item" id="divLoadingTip" style="margin: 0 auto 25px auto; display:none;" align="center"><img src="http://yuanjian.cnki.com.cn/images/result/loading.gif" alt="加载中..." title="加载中..." style="width:328px; height:126px;" /></div>
+            <div id="crfd_result" style="display:none;"></div>
+            <div id="article_result">
+
+
+
+
+<div class="lplist">
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201501005.htm" target="_blank" class="left" title="大数据时代的情报学变革">大数据时代的情报学变革&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201501005?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201501005" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">大数据在情报学领域的发展与应用,给情报学研究与实践带来巨大的挑战。传统情报学面临着更加复杂的数据网络、多样化的数据分析方法、精准化的用户需求及有针对性的结果呈现。本文通过研究大数据在各个领域尤其是知识...</p>
+
+                    <p class="source">
+                        <span title="曾建勋;魏来">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09549431%3b28311609%3b06604144%3b&amp;scholarName=%e6%9b%be%e5%bb%ba%e5%8b%8b target=&#39;_blank&#39;>曾建勋</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09549431%3b28311609%3b06604144%3b&amp;scholarName=%e9%ad%8f%e6%9d%a5 target=&#39;_blank&#39;>魏来</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201501" target="_blank">
+                                <span>2015年01期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="大数据/情报学/情报学变革">大数据</a>
+                                /
+                            <a data-key="大数据/情报学/情报学变革">情报学</a>
+                                /
+                            <a data-key="大数据/情报学/情报学变革">情报学变革</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（1441）</span>| <span class="time2">被引（50）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201501005" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506002.htm" target="_blank" class="left" title="数据科学兴起及其与信息科学的关联">数据科学兴起及其与信息科学的关联&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201506002?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201506002" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">在数据科学蓬勃兴起的背景下,指出数据科学与信息科学在理论逻辑和技术方法上一脉相承。在定性说明数据是数据-信息-知识-智慧概念链中一环的同时,定量推导出Brookes方程K=K_0+ΔK并逻辑归纳出知识是数据的对数之对数...</p>
+
+                    <p class="source">
+                        <span title="叶鹰;马费成">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b09018804%3b&amp;scholarName=%e5%8f%b6%e9%b9%b0 target=&#39;_blank&#39;>叶鹰</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b09018804%3b&amp;scholarName=%e9%a9%ac%e8%b4%b9%e6%88%90 target=&#39;_blank&#39;>马费成</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201506" target="_blank">
+                                <span>2015年06期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="数据/数据科学/信息/信息科学">数据</a>
+                                /
+                            <a data-key="数据/数据科学/信息/信息科学">数据科学</a>
+                                /
+                            <a data-key="数据/数据科学/信息/信息科学">信息</a>
+                                /
+                            <a data-key="数据/数据科学/信息/信息科学">信息科学</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（620）</span>| <span class="time2">被引（43）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201506002" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506001.htm" target="_blank" class="left" title="情报5.0:平行时代的平行情报体系">情报5.0:平行时代的平行情报体系&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201506001?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201506001" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">继机械化、电气化、信息化、网络化之后,人类已迈入虚实互动的平行化智能技术发展阶段。相应地,我们认为,与智能同根同源的情报科学与技术也将继人员情报、信号情报、图像情报、网络情报,迅速地进入平行情报这一新的历...</p>
+
+                    <p class="source">
+                        <span title="王飞跃">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26293131%3b10532516%3b&amp;scholarName=%e7%8e%8b%e9%a3%9e%e8%b7%83 target=&#39;_blank&#39;>王飞跃</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201506" target="_blank">
+                                <span>2015年06期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="平行情报/情报5.0/情报激活/激活器">平行情报</a>
+                                /
+                            <a data-key="平行情报/情报5.0/情报激活/激活器">情报5.0</a>
+                                /
+                            <a data-key="平行情报/情报5.0/情报激活/激活器">情报激活</a>
+                                /
+                            <a data-key="平行情报/情报5.0/情报激活/激活器">激活器</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（341）</span>| <span class="time2">被引（39）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201506001" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201503007.htm" target="_blank" class="left" title="基于LDA主题模型和生命周期理论的科学文献主题挖掘">基于LDA主题模型和生命周期理论的科学文献主题挖掘&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201503007?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201503007" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">科学文献主题挖掘可以帮助科研人员快速准确的捕捉学科主题的脉络结构,跟踪主题演化发展,并对学科发展趋势做出预测。本文将LDA(Latent Dirichlet Allocation,潜在狄利克雷分配)主题模型与科学文献生命周期理论结合起...</p>
+
+                    <p class="source">
+                        <span title="关鹏;王曰芬">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33719249%3b25017118%3b08066737%3b&amp;scholarName=%e5%85%b3%e9%b9%8f target=&#39;_blank&#39;>关鹏</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33719249%3b25017118%3b08066737%3b&amp;scholarName=%e7%8e%8b%e6%9b%b0%e8%8a%ac target=&#39;_blank&#39;>王曰芬</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201503" target="_blank">
+                                <span>2015年03期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="LDA/生命周期/理论主题/抽取主题">LDA</a>
+                                /
+                            <a data-key="LDA/生命周期/理论主题/抽取主题">生命周期</a>
+                                /
+                            <a data-key="LDA/生命周期/理论主题/抽取主题">理论主题</a>
+                                /
+                            <a data-key="LDA/生命周期/理论主题/抽取主题">抽取主题</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（493）</span>| <span class="time2">被引（24）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201503007" style="display:none;"></div>
+                </div>
+                            <div id="image_result" style="display:none;"></div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201509011.htm" target="_blank" class="left" title="互联网推荐系统研究综述">互联网推荐系统研究综述&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201509011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201509011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">随着社会化媒体的发展,信息过载问题带来了信息使用过程中的迷茫。推荐系统是解决信息过载的有效方案。互联网推荐系统是建立在大量有效数据的基础之上,本文在阐述推荐系统的基本概念和形式之后,从数据的角度探讨了互...</p>
+
+                    <p class="source">
+                        <span title="阮光册;夏磊">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=07532392%3b23120724%3b&amp;scholarName=%e9%98%ae%e5%85%89%e5%86%8c target=&#39;_blank&#39;>阮光册</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=07532392%3b23120724%3b&amp;scholarName=%e5%a4%8f%e7%a3%8a target=&#39;_blank&#39;>夏磊</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201509" target="_blank">
+                                <span>2015年09期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="推荐系统/社会标签/社交网络/用户行为">推荐系统</a>
+                                /
+                            <a data-key="推荐系统/社会标签/社交网络/用户行为">社会标签</a>
+                                /
+                            <a data-key="推荐系统/社会标签/社交网络/用户行为">社交网络</a>
+                                /
+                            <a data-key="推荐系统/社会标签/社交网络/用户行为">用户行为</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（500）</span>| <span class="time2">被引（21）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201509011" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201508002.htm" target="_blank" class="left" title="基于技术接受模型的微信用户信息发布行为研究">基于技术接受模型的微信用户信息发布行为研究&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201508002?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201508002" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">微信使用中,人们会选择进行积极的自我呈现和形象管理,以寻求他人认可或羡慕。本研究主要探讨微信用户信息发布的影响因素。在已有的研究基础上进行技术接受模型的修正,使用问卷调查的方法进行数据的收集整理。研究发...</p>
+
+                    <p class="source">
+                        <span title="谢新洲;安静;王尧">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=06261661%3b27204239%3b06270184%3b&amp;scholarName=%e8%b0%a2%e6%96%b0%e6%b4%b2 target=&#39;_blank&#39;>谢新洲</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=06261661%3b27204239%3b06270184%3b&amp;scholarName=%e5%ae%89%e9%9d%99 target=&#39;_blank&#39;>安静...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201508" target="_blank">
+                                <span>2015年08期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="微信/用户行为/结构方程模型/技术接受模型">微信</a>
+                                /
+                            <a data-key="微信/用户行为/结构方程模型/技术接受模型">用户行为</a>
+                                /
+                            <a data-key="微信/用户行为/结构方程模型/技术接受模型">结构方程模型</a>
+                                /
+                            <a data-key="微信/用户行为/结构方程模型/技术接受模型">技术接受模型</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（580）</span>| <span class="time2">被引（18）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201508002" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201704001.htm" target="_blank" class="left" title="大数据时代情报学与情报工作的回归">大数据时代情报学与情报工作的回归&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201704001?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2017&amp;dflag=cajdown&amp;cdno=INFO1711')" style="cursor:pointer;" data-fn="QBXB201704001" data-dbcode="CJFD" data-year="2017" title="下载"></a>
+                    </p>
+                    <p class="nr">长期以来,情报学与情报工作出现了偏移,以信息代替情报的研究模式,造成情报淡化,情报工作更是把文献服务、信息服务当做主要工作,由此大大削弱了情报本身的内涵。文章认为,大数据时代情报学与情报工作迎来了极好的发展...</p>
+
+                    <p class="source">
+                        <span title="苏新宁">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08041788%3b&amp;scholarName=%e8%8b%8f%e6%96%b0%e5%ae%81 target=&#39;_blank&#39;>苏新宁</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201704" target="_blank">
+                                <span>2017年04期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="大数据/情报学/情报工作/大情报观">大数据</a>
+                                /
+                            <a data-key="大数据/情报学/情报工作/大情报观">情报学</a>
+                                /
+                            <a data-key="大数据/情报学/情报工作/大情报观">情报工作</a>
+                                /
+                            <a data-key="大数据/情报学/情报工作/大情报观">大情报观</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（1160）</span>| <span class="time2">被引（50）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201704001" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201512001.htm" target="_blank" class="left" title="社会网络研究范式的演化、发展与应用——基于1998~2014年中国社会科学引文数据分析">社会网络研究范式的演化、发展与应用——基于1998~2014年中...&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201512001?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201512001" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">社会网络广泛应用于社会科学研究中,但少有研究对社会网络的研究范式做出系统、深入的总结与归纳。本文在对现有研究归纳总结的基础上,将社会网络研究概括为产生及初步发展阶段、统计模型快速发展阶段、复杂网络兴起及...</p>
+
+                    <p class="source">
+                        <span title="王宗水;赵红;刘宇;秦续忠">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33244460%3b33234004%3b06407817%3b33242492%3b&amp;scholarName=%e7%8e%8b%e5%ae%97%e6%b0%b4 target=&#39;_blank&#39;>王宗水</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33244460%3b33234004%3b06407817%3b33242492%3b&amp;scholarName=%e8%b5%b5%e7%ba%a2 target=&#39;_blank&#39;>赵红...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201512" target="_blank">
+                                <span>2015年12期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="社会网络/研究范式/演化与发展/中国社会科学引文">社会网络</a>
+                                /
+                            <a data-key="社会网络/研究范式/演化与发展/中国社会科学引文">研究范式</a>
+                                /
+                            <a data-key="社会网络/研究范式/演化与发展/中国社会科学引文">演化与发展</a>
+                                /
+                            <a data-key="社会网络/研究范式/演化与发展/中国社会科学引文">中国社会科学引文</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（464）</span>| <span class="time2">被引（19）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201512001" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201510009.htm" target="_blank" class="left" title="基于在线评论的用户需求挖掘模型研究">基于在线评论的用户需求挖掘模型研究&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201510009?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201510009" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">用户需求挖掘是产品/服务质量提升的重要前提,在线评论真实反映了用户对产品/服务的满意与否。本文针对在线评论数据构建了一个用户需求挖掘模型。该模型首先获取关于某产品/服务的评论数据,经预处理后提取评论文本的...</p>
+
+                    <p class="source">
+                        <span title="涂海丽;唐晓波;谢力">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=31763469%3b11700336%3b08988594%3b31361210%3b&amp;scholarName=%e6%b6%82%e6%b5%b7%e4%b8%bd target=&#39;_blank&#39;>涂海丽</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=31763469%3b11700336%3b08988594%3b31361210%3b&amp;scholarName=%e5%94%90%e6%99%93%e6%b3%a2 target=&#39;_blank&#39;>唐晓波...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201510" target="_blank">
+                                <span>2015年10期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="在线评论情感分类/LDA聚类需求挖掘/KANO模型">在线评论情感分类</a>
+                                /
+                            <a data-key="在线评论情感分类/LDA聚类需求挖掘/KANO模型">LDA聚类需求挖掘</a>
+                                /
+                            <a data-key="在线评论情感分类/LDA聚类需求挖掘/KANO模型">KANO模型</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（677）</span>| <span class="time2">被引（15）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201510009" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201606006.htm" target="_blank" class="left" title="微信群社会结构及其演化:基于文本挖掘的案例分析">微信群社会结构及其演化:基于文本挖掘的案例分析&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201606006?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2016&amp;dflag=cajdown&amp;cdno=INFO1712')" style="cursor:pointer;" data-fn="QBXB201606006" data-dbcode="CJFD" data-year="2016" title="下载"></a>
+                    </p>
+                    <p class="nr">微信已经成为移动网络用户进行信息交流、知识共享和协同工作的重要工具,但迄今对于微信群的成长规律、内部社会结构和群间衍生关系仍然缺乏深入了解。本文以在线社群理论和社会认同理论为引导,对9个真实的学术活动类...</p>
+
+                    <p class="source">
+                        <span title="王芳;翟羽佳">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b33016436%3b&amp;scholarName=%e7%8e%8b%e8%8a%b3 target=&#39;_blank&#39;>王芳</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b33016436%3b&amp;scholarName=%e7%bf%9f%e7%be%bd%e4%bd%b3 target=&#39;_blank&#39;>翟羽佳</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201606" target="_blank">
+                                <span>2016年06期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="移动在线社区/微信群/社会结构/社会认同">移动在线社区</a>
+                                /
+                            <a data-key="移动在线社区/微信群/社会结构/社会认同">微信群</a>
+                                /
+                            <a data-key="移动在线社区/微信群/社会结构/社会认同">社会结构</a>
+                                /
+                            <a data-key="移动在线社区/微信群/社会结构/社会认同">社会认同</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（782）</span>| <span class="time2">被引（20）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201606006" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201612010.htm" target="_blank" class="left" title="2005~2015年国内外政府数据开放共享研究述评">2005~2015年国内外政府数据开放共享研究述评&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201612010?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2016&amp;dflag=cajdown&amp;cdno=INFO1711')" style="cursor:pointer;" data-fn="QBXB201612010" data-dbcode="CJFD" data-year="2016" title="下载"></a>
+                    </p>
+                    <p class="nr">为了了解国内外政府数据开放共享研究现状,从而更好地指导国内开展相关研究工作,本文选取2005~2015年与政府数据开放共享研究相关的论文、相关政府文件、报告、新闻报道等文献,运用文献调查法、文献计量法和知识可视化...</p>
+
+                    <p class="source">
+                        <span title="黄如花;李白杨;周力虹">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09004444%3b32378818%3b28376565%3b&amp;scholarName=%e9%bb%84%e5%a6%82%e8%8a%b1 target=&#39;_blank&#39;>黄如花</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09004444%3b32378818%3b28376565%3b&amp;scholarName=%e6%9d%8e%e7%99%bd%e6%9d%a8 target=&#39;_blank&#39;>李白杨...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201612" target="_blank">
+                                <span>2016年12期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="政府数据/政府数据开放/政府数据共享/政府数据开放共享">政府数据</a>
+                                /
+                            <a data-key="政府数据/政府数据开放/政府数据共享/政府数据开放共享">政府数据开放</a>
+                                /
+                            <a data-key="政府数据/政府数据开放/政府数据共享/政府数据开放共享">政府数据共享</a>
+                                /
+                            <a data-key="政府数据/政府数据开放/政府数据共享/政府数据开放共享">政府数据开放共享</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（852）</span>| <span class="time2">被引（20）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201612010" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201502011.htm" target="_blank" class="left" title="零被引研究文献综述">零被引研究文献综述&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201502011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201502011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">&quot;零被引&quot;或&quot;零认可&quot;是社会各领域中普遍存在的一种现象,只不过大家以前过多关注&quot;高被引&quot;,而忽略了&quot;零被引&quot;。为此,本文首先阐述了零被引研究的背景、意义和进展。然后在反复...</p>
+
+                    <p class="source">
+                        <span title="胡泽文;武夷山">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33266291%3b09583759%3b&amp;scholarName=%e8%83%a1%e6%b3%bd%e6%96%87 target=&#39;_blank&#39;>胡泽文</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33266291%3b09583759%3b&amp;scholarName=%e6%ad%a6%e5%a4%b7%e5%b1%b1 target=&#39;_blank&#39;>武夷山</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201502" target="_blank">
+                                <span>2015年02期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="零被引现象/睡美人现象/意义/进展">零被引现象</a>
+                                /
+                            <a data-key="零被引现象/睡美人现象/意义/进展">睡美人现象</a>
+                                /
+                            <a data-key="零被引现象/睡美人现象/意义/进展">意义</a>
+                                /
+                            <a data-key="零被引现象/睡美人现象/意义/进展">进展</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（328）</span>| <span class="time2">被引（15）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201502011" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201501012.htm" target="_blank" class="left" title="实体链接研究综述">实体链接研究综述&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201501012?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201501012" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">实体链接是指将文本中的实体指称链向知识库实体的过程,它能够丰富文本语义信息,在自然语言处理、信息检索等领域有着广泛的应用前景。本文详细介绍了实体链接的概念和步骤,回顾了实体链接发展过程中的相关研究,在总结...</p>
+
+                    <p class="source">
+                        <span title="陆伟;武川">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09006361%3b22412079%3b&amp;scholarName=%e9%99%86%e4%bc%9f target=&#39;_blank&#39;>陆伟</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09006361%3b22412079%3b&amp;scholarName=%e6%ad%a6%e5%b7%9d target=&#39;_blank&#39;>武川</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201501" target="_blank">
+                                <span>2015年01期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="实体识别/实体消歧/实体链接">实体识别</a>
+                                /
+                            <a data-key="实体识别/实体消歧/实体链接">实体消歧</a>
+                                /
+                            <a data-key="实体识别/实体消歧/实体链接">实体链接</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（450）</span>| <span class="time2">被引（14）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201501012" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201512011.htm" target="_blank" class="left" title="社交媒体环境下的用户隐私关注研究现状">社交媒体环境下的用户隐私关注研究现状&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201512011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201512011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">用户隐私问题是一个跨学科、多领域的交叉研究命题。随着大数据时代的发展以及社交媒体的普及,用户的个人信息安全正遭受着前所未有的挑战,用户隐私关注逐渐成为信息管理学科所重点关注的研究方向。本文以国外期刊上发...</p>
+
+                    <p class="source">
+                        <span title="王雪芬;赵宇翔;朱庆华">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28076530%3b43072256%3b33269160%3b08722091%3b&amp;scholarName=%e7%8e%8b%e9%9b%aa%e8%8a%ac target=&#39;_blank&#39;>王雪芬</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28076530%3b43072256%3b33269160%3b08722091%3b&amp;scholarName=%e8%b5%b5%e5%ae%87%e7%bf%94 target=&#39;_blank&#39;>赵宇翔...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201512" target="_blank">
+                                <span>2015年12期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="社交媒体/隐私关注/网络信息资源/隐私披露">社交媒体</a>
+                                /
+                            <a data-key="社交媒体/隐私关注/网络信息资源/隐私披露">隐私关注</a>
+                                /
+                            <a data-key="社交媒体/隐私关注/网络信息资源/隐私披露">网络信息资源</a>
+                                /
+                            <a data-key="社交媒体/隐私关注/网络信息资源/隐私披露">隐私披露</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（657）</span>| <span class="time2">被引（11）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201512011" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201402012.htm" target="_blank" class="left" title="国际学术评价指标研究现状及发展综述">国际学术评价指标研究现状及发展综述&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201402012?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201402012" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+                    </p>
+                    <p class="nr">基于国际前沿研究进展简要评述以均值测度为标志的第一类指标、以高影响特征测度为标志的第二类指标和以整体综合测度为标志的第三类指标。在讨论三类指标各自优缺点和存在问题的同时,指出没有完美无缺的评价测度。简...</p>
+
+                    <p class="source">
+                        <span title="叶鹰">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b&amp;scholarName=%e5%8f%b6%e9%b9%b0 target=&#39;_blank&#39;>叶鹰</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201402" target="_blank">
+                                <span>2014年02期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="学术评价/评价指标/影响因子/h-指数">学术评价</a>
+                                /
+                            <a data-key="学术评价/评价指标/影响因子/h-指数">评价指标</a>
+                                /
+                            <a data-key="学术评价/评价指标/影响因子/h-指数">影响因子</a>
+                                /
+                            <a data-key="学术评价/评价指标/影响因子/h-指数">h-指数</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（340）</span>| <span class="time2">被引（38）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201402012" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506003.htm" target="_blank" class="left" title="我国情报学研究中理论的应用:基于《情报学报》的内容分析">我国情报学研究中理论的应用:基于《情报学报》的内容分析&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201506003?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201506003" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+                    </p>
+                    <p class="nr">本文对我国《情报学报》2000~2013年的1822篇文献的理论应用情况进行了内容分析,并编制了主题编码表、文章类型编码表、理论使用位置与使用类型编码表等,对文献进行了编码。在此基础上,分析了我国理论应用情况及其在文...</p>
+
+                    <p class="source">
+                        <span title="王芳;史海燕;纪雪梅">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b28799656%3b07079788%3b24012259%3b&amp;scholarName=%e7%8e%8b%e8%8a%b3 target=&#39;_blank&#39;>王芳</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b28799656%3b07079788%3b24012259%3b&amp;scholarName=%e5%8f%b2%e6%b5%b7%e7%87%95 target=&#39;_blank&#39;>史海燕...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201506" target="_blank">
+                                <span>2015年06期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="情报学/理论/内容分析/主题">情报学</a>
+                                /
+                            <a data-key="情报学/理论/内容分析/主题">理论</a>
+                                /
+                            <a data-key="情报学/理论/内容分析/主题">内容分析</a>
+                                /
+                            <a data-key="情报学/理论/内容分析/主题">主题</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（321）</span>| <span class="time2">被引（13）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201506003" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201407004.htm" target="_blank" class="left" title="基于LDA与新兴主题特征分析的新兴主题探测研究">基于LDA与新兴主题特征分析的新兴主题探测研究&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201407004?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201407004" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+                    </p>
+                    <p class="nr">本文尝试基于LDA主题模型探测文档集中的新兴主题。本文采用主题的新颖度、发文量指标,并引入被引量,得到新兴主题的特征指标,在此基础上对主题在进入成熟阶段前各个时期的特征进行了分析。并提出了针对上述新兴主题探...</p>
+
+                    <p class="source">
+                        <span title="范云满;马建霞">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=32336402%3b32336403%3b13617237%3b&amp;scholarName=%e8%8c%83%e4%ba%91%e6%bb%a1 target=&#39;_blank&#39;>范云满</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=32336402%3b32336403%3b13617237%3b&amp;scholarName=%e9%a9%ac%e5%bb%ba%e9%9c%9e target=&#39;_blank&#39;>马建霞</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201407" target="_blank">
+                                <span>2014年07期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="隐狄利克雷分布/主题模型/新兴主题/主题特征">隐狄利克雷分布</a>
+                                /
+                            <a data-key="隐狄利克雷分布/主题模型/新兴主题/主题特征">主题模型</a>
+                                /
+                            <a data-key="隐狄利克雷分布/主题模型/新兴主题/主题特征">新兴主题</a>
+                                /
+                            <a data-key="隐狄利克雷分布/主题模型/新兴主题/主题特征">主题特征</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（256）</span>| <span class="time2">被引（30）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201407004" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201308010.htm" target="_blank" class="left" title="基于语义的中文在线评论情感分析">基于语义的中文在线评论情感分析&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201308010?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2013&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201308010" data-dbcode="CJFD" data-year="2013" title="下载"></a>
+                    </p>
+                    <p class="nr">为解决传统的情感分析方法中存在的语义理解能力不足和情感分析不充分问题,本文从语义的角度,运用构建模糊情感本体的方法,对中文在线评论情感分析进行研究。引入情感空间模型,并将传统的在线评论情感分析细分为特征评...</p>
+
+                    <p class="source">
+                        <span title="史伟;王洪伟;何绍义">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26428749%3b08965813%3b28170890%3b&amp;scholarName=%e5%8f%b2%e4%bc%9f target=&#39;_blank&#39;>史伟</a>
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26428749%3b08965813%3b28170890%3b&amp;scholarName=%e7%8e%8b%e6%b4%aa%e4%bc%9f target=&#39;_blank&#39;>王洪伟...</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201308" target="_blank">
+                                <span>2013年08期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="情感本体/情感分析/语料标注/模糊语义">情感本体</a>
+                                /
+                            <a data-key="情感本体/情感分析/语料标注/模糊语义">情感分析</a>
+                                /
+                            <a data-key="情感本体/情感分析/语料标注/模糊语义">语料标注</a>
+                                /
+                            <a data-key="情感本体/情感分析/语料标注/模糊语义">模糊语义</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（518）</span>| <span class="time2">被引（44）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201308010" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201702002.htm" target="_blank" class="left" title="数据:大数据环境下情报学的研究对象">数据:大数据环境下情报学的研究对象&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201702002?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2017&amp;dflag=cajdown&amp;cdno=INFO1711')" style="cursor:pointer;" data-fn="QBXB201702002" data-dbcode="CJFD" data-year="2017" title="下载"></a>
+                    </p>
+                    <p class="nr">数据是一种蕴含着重要价值的情报资源。作为情报链主要构成要素,它的情报价值还有待重新认识与定位。实际上,数据具有情报活动所必备的描述功能和预测功能,有着十分重要的情报价值。当前,数据概念不断泛化,已经成为&q...</p>
+
+                    <p class="source">
+                        <span title="彭知辉">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09647197%3b&amp;scholarName=%e5%bd%ad%e7%9f%a5%e8%be%89 target=&#39;_blank&#39;>彭知辉</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201702" target="_blank">
+                                <span>2017年02期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="数据/情报/大数据/情报学">数据</a>
+                                /
+                            <a data-key="数据/情报/大数据/情报学">情报</a>
+                                /
+                            <a data-key="数据/情报/大数据/情报学">大数据</a>
+                                /
+                            <a data-key="数据/情报/大数据/情报学">情报学</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（836）</span>| <span class="time2">被引（26）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201702002" style="display:none;"></div>
+                </div>
+            <div class="list-item">
+                <p class="tit clearfix">
+                    <input type="hidden" value=",,QSS0103;,CJFD" />
+
+                <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201406011.htm" target="_blank" class="left" title="链接分析:知识基础、研究主体、研究热点与前沿综述——基于科学知识图谱的途径">链接分析:知识基础、研究主体、研究热点与前沿综述——基于...&nbsp;&nbsp;CNKI文献</a>
+
+
+                        <a class="download left" href="javascript:void(0)" onclick="goDownload('/Home/DownloadArticle/QBXB201406011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp')" style="cursor:pointer;" data-fn="QBXB201406011" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+                    </p>
+                    <p class="nr">基于Web of Science和中国知网中&quot;链接分析&quot;方面的文献数据,首先简要介绍了国内外链接分析研究的发展趋势,然后融合CitespaceⅡ、SATI 3.1和Netdraw等文献计量与可视化分析软件构建了:①引文共被引聚类图谱...</p>
+
+                    <p class="source">
+                        <span title="孙建军">
+                            <a href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08067678%3b&amp;scholarName=%e5%ad%99%e5%bb%ba%e5%86%9b target=&#39;_blank&#39;>孙建军</a>
+
+                        </span>
+                                                    <a href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" target="_blank">
+                                <span title="情报学报">《<span style='color:red'>情报学报</span>》</span>
+                            </a>
+                            <a href="/cjfd/Home/Detail/QBXB201406" target="_blank">
+                                <span>2014年06期</span>
+                            </a>
+                        
+                        <span>期刊</span>
+                    </p>
+                    <div class="info">
+                        <p class="info_left left">
+                            关键词：
+                            <a data-key="链接分析/知识基础/研究主体/研究热点">链接分析</a>
+                                /
+                            <a data-key="链接分析/知识基础/研究主体/研究热点">知识基础</a>
+                                /
+                            <a data-key="链接分析/知识基础/研究主体/研究热点">研究主体</a>
+                                /
+                            <a data-key="链接分析/知识基础/研究主体/研究热点">研究热点</a>
+
+                            
+                        </p>
+                        <p class="info_right right"><span class="time1">下载（405）</span>| <span class="time2">被引（20）</span></p>
+                    </div>
+                    <div class="checkbox1" data-fn="QBXB201406011" style="display:none;"></div>
+                </div>
+
+</div>
+    <table style="display:none" class="re-table" cellpadding="0" cellspacing="0" width="734">
+        <tbody>
+            <tr class="even-row">
+                <th width="32"></th>
+                <th width="290">题&nbsp;&nbsp;&nbsp;名</th>
+                <th width="64">作者</th>
+                <th width="95">来&nbsp;&nbsp;&nbsp;源</th>
+                <th width="79">发表时间</th>
+                <th width="40">类型</th>
+                <th width="37">被引</th>
+                <th width="50">下载</th>
+                <th class="bdgray" width="42">操作</th>
+            </tr>
+        <tr class="">
+            <td>
+                <span class="index">1</span>
+                <span class="checkbox1" data-fn="QBXB201501005" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201501005.htm" target="_blank" title="大数据时代的情报学变革">大数据时代的情报学变革</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09549431%3b28311609%3b06604144%3b&amp;scholarName=%e6%9b%be%e5%bb%ba%e5%8b%8b target=&#39;_blank&#39; title="">曾建勋</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09549431%3b28311609%3b06604144%3b&amp;scholarName=%e9%ad%8f%e6%9d%a5 target=&#39;_blank&#39; title="">魏来</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-01-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>50</div></td>
+            <td><div>1441</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201501005?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201501005" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">2</span>
+                <span class="checkbox1" data-fn="QBXB201506002" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506002.htm" target="_blank" title="数据科学兴起及其与信息科学的关联">数据科学兴起及其与信息科学的关联</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b09018804%3b&amp;scholarName=%e5%8f%b6%e9%b9%b0 target=&#39;_blank&#39; title="">叶鹰</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b09018804%3b&amp;scholarName=%e9%a9%ac%e8%b4%b9%e6%88%90 target=&#39;_blank&#39; title="">马费成</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-06-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>43</div></td>
+            <td><div>620</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201506002?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201506002" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">3</span>
+                <span class="checkbox1" data-fn="QBXB201506001" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506001.htm" target="_blank" title="情报5.0:平行时代的平行情报体系">情报5.0:平行时代的平行情报体系</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26293131%3b10532516%3b&amp;scholarName=%e7%8e%8b%e9%a3%9e%e8%b7%83 target=&#39;_blank&#39; title="">王飞跃</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-06-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>39</div></td>
+            <td><div>341</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201506001?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201506001" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">4</span>
+                <span class="checkbox1" data-fn="QBXB201503007" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201503007.htm" target="_blank" title="基于LDA主题模型和生命周期理论的科学文献主题挖掘">基于LDA主题模型和生命周期理论的科学文献主题挖掘</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33719249%3b25017118%3b08066737%3b&amp;scholarName=%e5%85%b3%e9%b9%8f target=&#39;_blank&#39; title="">关鹏</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33719249%3b25017118%3b08066737%3b&amp;scholarName=%e7%8e%8b%e6%9b%b0%e8%8a%ac target=&#39;_blank&#39; title="">王曰芬</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-03-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>24</div></td>
+            <td><div>493</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201503007?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201503007" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">5</span>
+                <span class="checkbox1" data-fn="QBXB201509011" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201509011.htm" target="_blank" title="互联网推荐系统研究综述">互联网推荐系统研究综述</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=07532392%3b23120724%3b&amp;scholarName=%e9%98%ae%e5%85%89%e5%86%8c target=&#39;_blank&#39; title="">阮光册</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=07532392%3b23120724%3b&amp;scholarName=%e5%a4%8f%e7%a3%8a target=&#39;_blank&#39; title="">夏磊</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-09-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>21</div></td>
+            <td><div>500</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201509011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201509011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">6</span>
+                <span class="checkbox1" data-fn="QBXB201508002" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201508002.htm" target="_blank" title="基于技术接受模型的微信用户信息发布行为研究">基于技术接受模型的微信用户信息发布行为研究</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=06261661%3b27204239%3b06270184%3b&amp;scholarName=%e8%b0%a2%e6%96%b0%e6%b4%b2 target=&#39;_blank&#39; title="">谢新洲</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=06261661%3b27204239%3b06270184%3b&amp;scholarName=%e5%ae%89%e9%9d%99 target=&#39;_blank&#39; title="">安静</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-08-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>18</div></td>
+            <td><div>580</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201508002?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201508002" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">7</span>
+                <span class="checkbox1" data-fn="QBXB201704001" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201704001.htm" target="_blank" title="大数据时代情报学与情报工作的回归">大数据时代情报学与情报工作的回归</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08041788%3b&amp;scholarName=%e8%8b%8f%e6%96%b0%e5%ae%81 target=&#39;_blank&#39; title="">苏新宁</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2017-04-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>50</div></td>
+            <td><div>1160</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201704001?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2017&amp;dflag=cajdown&amp;cdno=INFO1711" target="_blank" style="cursor:pointer;" data-fn="QBXB201704001" data-dbcode="CJFD" data-year="2017" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">8</span>
+                <span class="checkbox1" data-fn="QBXB201512001" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201512001.htm" target="_blank" title="社会网络研究范式的演化、发展与应用——基于1998~2014年中国社会科学引文数据分析">社会网络研究范式的演化、发展与应用——基于1998~2014年中国社会科学...</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33244460%3b33234004%3b06407817%3b33242492%3b&amp;scholarName=%e7%8e%8b%e5%ae%97%e6%b0%b4 target=&#39;_blank&#39; title="">王宗水</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33244460%3b33234004%3b06407817%3b33242492%3b&amp;scholarName=%e8%b5%b5%e7%ba%a2 target=&#39;_blank&#39; title="">赵红</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-12-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>19</div></td>
+            <td><div>464</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201512001?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201512001" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">9</span>
+                <span class="checkbox1" data-fn="QBXB201510009" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201510009.htm" target="_blank" title="基于在线评论的用户需求挖掘模型研究">基于在线评论的用户需求挖掘模型研究</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=31763469%3b11700336%3b08988594%3b31361210%3b&amp;scholarName=%e6%b6%82%e6%b5%b7%e4%b8%bd target=&#39;_blank&#39; title="">涂海丽</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=31763469%3b11700336%3b08988594%3b31361210%3b&amp;scholarName=%e5%94%90%e6%99%93%e6%b3%a2 target=&#39;_blank&#39; title="">唐晓波</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-10-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>15</div></td>
+            <td><div>677</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201510009?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201510009" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">10</span>
+                <span class="checkbox1" data-fn="QBXB201606006" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201606006.htm" target="_blank" title="微信群社会结构及其演化:基于文本挖掘的案例分析">微信群社会结构及其演化:基于文本挖掘的案例分析</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b33016436%3b&amp;scholarName=%e7%8e%8b%e8%8a%b3 target=&#39;_blank&#39; title="">王芳</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b33016436%3b&amp;scholarName=%e7%bf%9f%e7%be%bd%e4%bd%b3 target=&#39;_blank&#39; title="">翟羽佳</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2016-06-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>20</div></td>
+            <td><div>782</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201606006?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2016&amp;dflag=cajdown&amp;cdno=INFO1712" target="_blank" style="cursor:pointer;" data-fn="QBXB201606006" data-dbcode="CJFD" data-year="2016" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">11</span>
+                <span class="checkbox1" data-fn="QBXB201612010" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201612010.htm" target="_blank" title="2005~2015年国内外政府数据开放共享研究述评">2005~2015年国内外政府数据开放共享研究述评</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09004444%3b32378818%3b28376565%3b&amp;scholarName=%e9%bb%84%e5%a6%82%e8%8a%b1 target=&#39;_blank&#39; title="">黄如花</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09004444%3b32378818%3b28376565%3b&amp;scholarName=%e6%9d%8e%e7%99%bd%e6%9d%a8 target=&#39;_blank&#39; title="">李白杨</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2016-12-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>20</div></td>
+            <td><div>852</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201612010?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2016&amp;dflag=cajdown&amp;cdno=INFO1711" target="_blank" style="cursor:pointer;" data-fn="QBXB201612010" data-dbcode="CJFD" data-year="2016" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">12</span>
+                <span class="checkbox1" data-fn="QBXB201502011" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201502011.htm" target="_blank" title="零被引研究文献综述">零被引研究文献综述</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33266291%3b09583759%3b&amp;scholarName=%e8%83%a1%e6%b3%bd%e6%96%87 target=&#39;_blank&#39; title="">胡泽文</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=33266291%3b09583759%3b&amp;scholarName=%e6%ad%a6%e5%a4%b7%e5%b1%b1 target=&#39;_blank&#39; title="">武夷山</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-02-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>15</div></td>
+            <td><div>328</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201502011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201502011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">13</span>
+                <span class="checkbox1" data-fn="QBXB201501012" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201501012.htm" target="_blank" title="实体链接研究综述">实体链接研究综述</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09006361%3b22412079%3b&amp;scholarName=%e9%99%86%e4%bc%9f target=&#39;_blank&#39; title="">陆伟</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09006361%3b22412079%3b&amp;scholarName=%e6%ad%a6%e5%b7%9d target=&#39;_blank&#39; title="">武川</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-01-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>14</div></td>
+            <td><div>450</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201501012?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201501012" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">14</span>
+                <span class="checkbox1" data-fn="QBXB201512011" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201512011.htm" target="_blank" title="社交媒体环境下的用户隐私关注研究现状">社交媒体环境下的用户隐私关注研究现状</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28076530%3b43072256%3b33269160%3b08722091%3b&amp;scholarName=%e7%8e%8b%e9%9b%aa%e8%8a%ac target=&#39;_blank&#39; title="">王雪芬</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28076530%3b43072256%3b33269160%3b08722091%3b&amp;scholarName=%e8%b5%b5%e5%ae%87%e7%bf%94 target=&#39;_blank&#39; title="">赵宇翔</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-12-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>11</div></td>
+            <td><div>657</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201512011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201512011" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">15</span>
+                <span class="checkbox1" data-fn="QBXB201402012" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201402012.htm" target="_blank" title="国际学术评价指标研究现状及发展综述">国际学术评价指标研究现状及发展综述</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=28023437%3b&amp;scholarName=%e5%8f%b6%e9%b9%b0 target=&#39;_blank&#39; title="">叶鹰</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2014-02-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>38</div></td>
+            <td><div>340</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201402012?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201402012" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">16</span>
+                <span class="checkbox1" data-fn="QBXB201506003" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201506003.htm" target="_blank" title="我国情报学研究中理论的应用:基于《情报学报》的内容分析">我国情报学研究中理论的应用:基于《情报学报》的内容分析</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b28799656%3b07079788%3b24012259%3b&amp;scholarName=%e7%8e%8b%e8%8a%b3 target=&#39;_blank&#39; title="">王芳</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08107849%3b28799656%3b07079788%3b24012259%3b&amp;scholarName=%e5%8f%b2%e6%b5%b7%e7%87%95 target=&#39;_blank&#39; title="">史海燕</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2015-06-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>13</div></td>
+            <td><div>321</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201506003?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2015&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201506003" data-dbcode="CJFD" data-year="2015" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">17</span>
+                <span class="checkbox1" data-fn="QBXB201407004" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201407004.htm" target="_blank" title="基于LDA与新兴主题特征分析的新兴主题探测研究">基于LDA与新兴主题特征分析的新兴主题探测研究</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=32336402%3b32336403%3b13617237%3b&amp;scholarName=%e8%8c%83%e4%ba%91%e6%bb%a1 target=&#39;_blank&#39; title="">范云满</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=32336402%3b32336403%3b13617237%3b&amp;scholarName=%e9%a9%ac%e5%bb%ba%e9%9c%9e target=&#39;_blank&#39; title="">马建霞</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2014-07-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>30</div></td>
+            <td><div>256</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201407004?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201407004" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">18</span>
+                <span class="checkbox1" data-fn="QBXB201308010" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201308010.htm" target="_blank" title="基于语义的中文在线评论情感分析">基于语义的中文在线评论情感分析</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26428749%3b08965813%3b28170890%3b&amp;scholarName=%e5%8f%b2%e4%bc%9f target=&#39;_blank&#39; title="">史伟</a>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=26428749%3b08965813%3b28170890%3b&amp;scholarName=%e7%8e%8b%e6%b4%aa%e4%bc%9f target=&#39;_blank&#39; title="">王洪伟</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2013-08-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>44</div></td>
+            <td><div>518</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201308010?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2013&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201308010" data-dbcode="CJFD" data-year="2013" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="">
+            <td>
+                <span class="index">19</span>
+                <span class="checkbox1" data-fn="QBXB201702002" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201702002.htm" target="_blank" title="数据:大数据环境下情报学的研究对象">数据:大数据环境下情报学的研究对象</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=09647197%3b&amp;scholarName=%e5%bd%ad%e7%9f%a5%e8%be%89 target=&#39;_blank&#39; title="">彭知辉</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2017-02-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>26</div></td>
+            <td><div>836</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201702002?dbcode=CJFDLAST2017&amp;dbtype=CJFD&amp;year=2017&amp;dflag=cajdown&amp;cdno=INFO1711" target="_blank" style="cursor:pointer;" data-fn="QBXB201702002" data-dbcode="CJFD" data-year="2017" title="下载"></a>
+            </td>
+        </tr>
+        <tr class="even-row">
+            <td>
+                <span class="index">20</span>
+                <span class="checkbox1" data-fn="QBXB201406011" style="display:none;"></span>
+                <input type="hidden" value=",,QSS0103;,CJFD" />
+            </td>
+            <td>
+                <div class="name">
+            <a href="http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201406011.htm" target="_blank" title="链接分析:知识基础、研究主体、研究热点与前沿综述——基于科学知识图谱的途径">链接分析:知识基础、研究主体、研究热点与前沿综述——基于科学知识图...</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="author" href=http://yuanjian.cnki.com.cn/scholar/Result?AuthorFilter=08067678%3b&amp;scholarName=%e5%ad%99%e5%bb%ba%e5%86%9b target=&#39;_blank&#39; title="">孙建军</a>
+
+                </div>
+            </td>
+
+            <td>
+                <div>
+                <a class="source-i" href="http://yuanjian.cnki.com.cn/CJFD/Detail/Index/QBXB" title="情报学报" target="_blank">《<span style='color:red'>情报学报</span>》</a>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    2014-06-24
+                </div>
+            </td>
+
+            <td><div>期刊</div></td>
+            <td><div>20</div></td>
+            <td><div>405</div></td>
+            <td class="bdgray">
+                    <a class="download" href="/Home/DownloadArticle/QBXB201406011?dbcode=CJFDTEMP&amp;dbtype=CJFD&amp;year=2014&amp;dflag=cajdown&amp;cdno=cajtmp" target="_blank" style="cursor:pointer;" data-fn="QBXB201406011" data-dbcode="CJFD" data-year="2014" title="下载"></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+<input type="hidden" value="2988" id="hidTotalCount" class="pTotalCount" />
+<input type="hidden" value="" id="hidResultKeywords" />
+<script>
+    $("#totalcount").html("2988");
+    $("#hidTotalPageCount").val("150");
+</script>
+                
+            </div>
+            <div class="list-item book" id="pinde_result" style="display: none;"></div>
+            <div class="list-item wenji" id="wenji_result" style="display: none;"></div>
+            <div id="crfd_result_list" style="display: none;"></div>
+            <div id="wenji_result_list" style="display:none;"></div>
+            <div id="image_result_list" style="display: none;"></div>
+        </div>
+        <div id="recommandWordsTable" class="xgss"></div>
+        <div class="page"></div>
+    </div>
+    <div class="cont-right right new-right-width322 jg-r-m">
+        <div class="slogan"><img src="http://yuanjian.cnki.com.cn/images/result/slogan.jpg" width="290" height="26" /></div>
+        <div id="translate_result" style="display:none;"></div>
+        <div class="xgqk">
+            <!-- 结果页趋势图-->
+
+
+<h1 class="positionR" name="c_qst">学术研究指数分析(近十年)<span class="positionA xiangq"><a style="cursor:pointer;" id="trendDetail">详情&gt;&gt;</a></span></h1>
+<div class="zsfx clearfix" name="c_qst">
+    <div class="zsfx-qh-ban ">
+        <ul id="tabzhishu">
+            <li class="choosed qh-bian" style="cursor:pointer;" trendtype="0">发文趋势</li>
+
+            
+        </ul>
+    </div>
+    <div class="zsfx-qh-con">
+        <div style="width:280px; height:200px;" id="trendEchart"></div>
+    </div>
+</div>
+
+
+<div class="hei-bg" style="display:none;  height:100%;width:100%;top:0px;left:0px;position:fixed;z-index:1001;overflow-y:auto" id="bigTrendDiv">
+    <div class="tck-bg positionR">
+        <a href="javascript:void(0);" name="chartsClose" class="btn-closed positionA"> </a>
+        
+        <div class="tck-tit positionR">
+            <span class="tit01" style="line-height:normal;">学术研究指数分析</span>
+            <span class="tit02">情报学报</span>
+            <div class="tck-logo positionA"></div>
+        </div>
+        <div class="cl"></div>
+        <div class="tck-kuang">
+            <div class="tck-qh-ban">
+                <ul class="l-qhban">
+                    <li class="rd-active" trendtype="0" style="cursor:pointer">发文趋势</li>
+                    
+                </ul>
+                <div class="r-chaxun">
+                    <span class="cx-font">From</span>
+                    <span>
+                        <input name="trendTimeBegin" id="trendTimeBegin" type="text" class="shuru" onclick="WdatePicker({dateFmt:'yyyy',
+                    isShowToday:true})" readonly="readonly">
+                    </span>
+                    <span class="cx-font">To</span>
+                    <span>
+                        <input name="trendTimeEnd" id="trendTimeEnd" type="text" class="shuru" onclick="WdatePicker({dateFmt:'yyyy',
+                    isShowToday:true})" readonly="readonly">
+                    </span>
+                    <span><a style="cursor:pointer;" class="btn-cx" id="trendSearch">查询</a></span>
+                </div>
+            </div>
+            <div class="cl"></div>
+            <div class="tck-qh-con">
+                
+                <div class="cl"></div>
+                <div class="fw-tab" id="bigTrendChart" style="width:707px; height:258px;"></div>
+                <div class="xkrd-tab positionR">
+                    <span class="rd-arrow positionA"></span>
+                    <table width="774" border="0" cellspacing="0" cellpadding="0">
+                        <tbody id="trendBody">
+                            <tr class="tab-top">
+                                <td width="435">题名(按相关度排序,默认前十条)</td>
+                                <td width="135">作者</td>
+                                <td>年/期</td>
+                                <td>下载</td>
+                                <td>被引</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="cl"></div>
+
+
+<h1 class="positionR" name="c_zzt">热门学者<span class="tit-hui12">（按发文篇数排行）</span></h1>
+<div class="rmxz" style="width:303px;height:264px;" id="barChart" name="c_zzt"></div>
+
+            <div class="cl"></div>
+            <h1 class="positionR" name="xgjg">相关机构</h1>
+            <div class="xgjg" id="rightOrg" name="xgjg"></div>
+        </div>
+        <div id="corrArticle"></div>
+        <div class="xgqk">
+            <h1 class="positionR" id="subjectName"></h1>
+            <div class="xgjg" id="mainSubject">
+            </div>
+        </div>
+        <div class="ad">
+   
+    <a href="http://mall.cnki.net/Xinke/web/Info/DZ1907060022" target="_blank" title="史铁生评传" style="width:290px;"><img src="http://yuanjian.cnki.com.cn/images/ad/DZ1907060022.jpg" width="289" height="204" alt="史铁生评传"></a>
+</div>
+    </div>
+</div>
+<div class="bottomBar">
+    <a style="cursor:pointer;" class="close"></a>
+    <div class="inner">
+        <ul>
+            <li class="item1"><label><i></i><span>全选</span></label></li>
+            <li class="item2"><a style="cursor:pointer;">全部清除</a></li>
+            <li class="item3"><a style="cursor:pointer;">已选文献（<i>0</i>）</a></li>
+            <li class="item4"><a style="cursor:pointer;">生成参考文献</a></li>
+        </ul>
+    </div>
+</div>
+
+    </div>
+    <!--footer-->
+    <div class="foot-wrap">
+        <div class="footer-fen">
+            <a href="//www.cnki.net/gycnki/gycnki.htm" target="_blank" title="关于CNKI">关于CNKI</a>|
+            <a style="cursor:pointer;" onclick="addFavorite('http://yuanjian.cnki.com.cn', 'CNKI远见搜索')" title="收藏远见">收藏远见</a>|
+            <a target="_blank" href="/FeedBack/index" title="用户反馈">用户反馈</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2016-2020 《中国学术期刊（光盘版）》电子杂志社有限公司&nbsp;京ICP证040431号&nbsp;<a target="_blank" href="http://piccache.cnki.net/index/images/gb/271.jpg" style="color:#a3a3a3">网络出版服务许可证 (总)网出证(京)字第 271 号</a>&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020460" style="color:#a3a3a3">京公网安备 11010802020460 号</a>
+        </div>
+    </div>
+        <div id="dscroll">
+            <div class="top-icon top-widthmax">
+                <a href="/FeedBack/Index" target="_blank" class="feedback">用户反馈</a>
+                <div class="to-top" style="display: none;">
+                    <a href="javascript:void(0)" class="top1" style="display: block;" onclick="window.scroll(0, 0);"></a>
+                    <a href="javascript:void(0)" class="top2" style="display: none;" onclick="window.scroll(0, 0);"></a>
+                </div>
+                <script>
+                    $(".to-top").hover(
+                        function () {
+                            $(this).children(".top1").css({ "display": "none" })
+                            $(this).children(".top2").css({ "display": "block" })
+                        },
+                        function () {
+                            $(this).children(".top2").css({ "display": "none" })
+                            $(this).children(".top1").css({ "display": "block" })
+                        })
+                </script>
+            </div>
+        </div>
+    <!--top icon-->
+    <div class="top-icon" id="nodeScroll" style="display:none;">
+        <a style="cursor:pointer;" onclick="window.scroll(0, 0);" class="btn1"></a>
+        <a href="http://www.cnki.com.cn/hqqw.html" target="_blank" class="btn2"></a>
+        <a href="/FeedBack/Index" target="_blank" class="btn3">用户反馈</a>
+    </div>
+
+    <script src="/Scripts/search.js"></script>
+
+    <script src="/Scripts/searchCjfd.js"></script>
+
+    <script>
+        searchConditionPara.DoMainSearch = "http://yuanjian.cnki.com.cn";
+        searchData.XuewenServerUrl = "http://xuewen.cnki.net";
+        searchData.CorpusServerUrl = "http://bianke.cnki.net";
+        searchData.MallServerUrl = "http://mall.cnki.net";
+        var channelType = "0";
+        $(document).ready(function () {
+            literatureSearch();//顶部搜索框事件
+            $(".select input").live("keyup mousedown propertychange", function () {
+                var val = $(this).val();
+                //console.log(val);
+                if (val.length > 0) {
+                    $(this).parent().children(".sweep").show();
+                }
+                else {
+                    $(this).parent().children(".sweep").hide();
+                }
+            });
+            $(".sweep").live("click", function () {
+                $(this).parent().children("input[type='text']").val("");
+                $(this).hide();
+            });
+
+            $("#closeSpringBg").click(function () {
+                $("body").removeClass("springBg");
+            });
+            var cnkinode = $("#cnkinode").val();
+            if (cnkinode && cnkinode == "cnkinode") {
+                $("#dscroll").hide();
+                $("#nodeScroll").show();
+            }
+            //初始化事件
+            initEventBind();
+            try {
+                //关键字提示
+                remember();
+            }
+            catch (ee)
+            { }
+            $(".headfen-right .sz").click(function (event) {
+                //校验是否打开历史纪录
+                if (checkHistoryEnabled()) {
+                    $("#OpenHistory").hide();
+                    $("#ShutDownHistory").show()
+                } else {
+                    $("#OpenHistory").show();
+                    $("#ShutDownHistory").hide();
+                }
+                $(this).siblings("ul").show();
+                event.stopPropagation();//阻止子元素继承父级事件
+            });
+            $("body").click(function () {
+                $(".headfen-right ul").hide()
+            });
+            //组合搜索框
+            bindKeyWordsConfirmOpen();
+            //判断顶部搜索是否为多类型组合搜索
+            var mulitySearchOrNot = $("#MultiTermSearch .xiugai").length > 1;
+            //悬浮顶端搜索框  TODO  待改
+            var scrollTop = 0;
+            var offsetHeight = $(".head-wrap").siblings("#PageContent").offset().top;
+            var baseOffsetTop = offsetHeight;
+            $(window).scroll(function () {
+                scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                if (scrollTop > 0) {
+                    $("#MultiTermSearch .xiugai").hide();
+                    $("#MultiTermSearch .xiugai").eq(0).show().find(".searchwrap").css("display", "block");
+                    if (mulitySearchOrNot) {
+                        var currentOffsetHeight = $(".head-wrap").siblings("#PageContent").offset().top;
+                        $(".head-wrap").siblings("#PageContent").css("margin-top", currentOffsetHeight);
+                    }
+                    else {
+                        $(".head-wrap").siblings("#PageContent").css("margin-top", offsetHeight);
+                    }
+                    $(".head-wrap").addClass("float-head");
+                    $(".to-top").show();//显示浮动按钮 跳转到头部
+                }
+                else {
+                    $(".head-wrap").removeClass("float-head");
+                    if ($("#MultiTermSearch .xiugai").length > 1) {
+                        $("#MultiTermSearch .xiugai").eq(0).find(".searchwrap").css("display", "none");
+                    }
+                    $("#MultiTermSearch .xiugai").show();
+                    $(".head-wrap").siblings("#PageContent").css("margin-top", "");
+
+                    $(".to-top").hide();//隐藏浮动按钮 跳转到头部
+                }
+            })
+            //滚动中 鼠标移动到搜索栏
+            $(".head-fen").hover(function () {
+                if (scrollTop > 0) {
+                    if ($("#MultiTermSearch .xiugai").length > 1) {
+                        $("#MultiTermSearch .xiugai").eq(0).find(".searchwrap").css("display", "none");
+                    }
+                    $("#MultiTermSearch .xiugai").show();
+                }
+            }, function () {
+                if (scrollTop > 0) {
+                    $(".head-wrap").addClass("float-head");
+                    $("#MultiTermSearch .xiugai").hide();
+                    $("#MultiTermSearch .xiugai").eq(0).show().find(".searchwrap").css("display", "block");
+                }
+            })
+
+        });
+        //添加数组IndexOf方法 兼容ie8数组没有indexof方法
+        if (!Array.prototype.indexOf) {
+            Array.prototype.indexOf = function (elt /*, from*/) {
+                var len = this.length >>> 0;
+                var from = Number(arguments[1]) || 0;
+                from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+                if (from < 0)
+                    from += len;
+                for (; from < len; from++) {
+                    if (from in this && this[from] === elt)
+                        return from;
+                }
+                return -1;
+            };
+        }
+
+        function SetHome(obj) {
+            try {
+                var url = window.location.href;
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch (e) {
+                alert("设置首页失败，请手动设置！");
+            }
+        }
+    </script>
+    
+    <script src="/Scripts/InitChart.js"></script>
+
+    <script src="/Scripts/tz_fly.js"></script>
+
+    
+    <script>
+    var echartsUrl = "/Scripts/echarts/source";
+    var ChartsMathUrl = "/Charts/";
+    $(document).ready(function () {
+        referenceServerUrl = "/Reference/ViewSave";
+        play_fly_imgSrc = "/images/result/addBtn.png";
+        fileterResultServerApiUrl = "/api/FileterResultApi/ArticleFileter";
+        getImageReleantUrl = "/Search/getimagebykeyword";
+        initPage(1);
+        bindFilterSelectItemEvent();
+        //测试
+        if (window.location.href.indexOf("192.168.100.") != -1)
+            getImageReleantUrl = "http://192.168.21.118:8650/Search/getimagebykeyword";
+        $(".px .rank p").hover(
+                function (event) {
+                    $(this).siblings("ul").css("display", "block");
+                    event.stopPropagation()
+                }, function () {
+                    $(this).siblings("ul").css("display", "none");
+                })
+
+        $(".rank ul li a").click(
+            function () {
+                var Text1 = $(this).text()
+                $(".rank p").text(Text1)
+                $(this).parent("ul").hide()
+            })
+
+        $(".rank ul").hover(function () {
+            $(this).css("display", "block");
+        }, function () {
+            $(this).css("display", "none");
+        })
+        $(document).click(function () {
+            $(".rank ul").hide()
+        })
+
+        $("#QuickSearch .search").click(function () {
+            var quickKey = $("#textSearchKey").val();
+            if (quickKey != "") doGetRecommandWords(quickKey);
+        });
+        $("#MultiTermSearch .search").click(function () {
+            var multiKey = $("#MultiTermSearch input[type='text']").first().val();
+            if (multiKey != undefined && multiKey != "") doGetRecommandWords(multiKey);
+        });
+
+        $(".filtrate .itemm").click(function () {
+            var field = $(this).attr("data-field");
+            if (filterReloadTagobj[field]) {
+                if (searchGroupObj.checkIsFrequently())
+                    return false;
+                loadfilter(field);
+            }
+            else {
+                $(".pop2").hide();
+                $("#filter_" + field).show();
+            }
+            $(".filtrate .itemm .see2").hide();
+            $(this).children(".see2").show();
+        });
+        $(".yx p").live("hover", function (event) {
+            if (event.type == 'mouseenter') {
+                $(this).addClass("hover").children(".close2").addClass("close2red");
+            }
+            else {
+                $(this).removeClass("hover").children(".close2").removeClass("close2red");
+            }
+        });
+
+        $("#rightOrg a[name='aOrg']").live("click", function () {
+            var code = $(this).attr("code");
+            var href = $("#InstitutionUrl").val() + code;
+            $(this).attr("href", href);
+        });
+
+        var keyword = "情报学报";
+        var spaceIndex = keyword.indexOf(" ");
+        if (($("#QuickSearch .MulSerchKey").is(":visible") || ($("#MultiTermSearch .MulSerchKey").is(":visible") && $("#MultiTermSearch .MulSerchKey").length < 2)) && spaceIndex == -1) {
+            if (keyword.length > 0) {
+                loadBaikea(keyword);
+                loadMallPinde(keyword);
+                loadCorpus(keyword);
+                loadImageRelevant(keyword);
+            }
+        }
+        if (keyword.length > 0)
+            loadTranslate(keyword);
+        doGetRecommandWords(keyword);
+        RightSubjectInfo(keyword); //右侧学科信息加载
+        setTimeout(function () {
+            $(".re-table1 tr:nth-child(even)").addClass("even-row");
+        }, 5000);
+
+        //图表
+        InitBasicChartConfig();
+        setTimeout(function () {
+            GetOrgAndAuthorInfo("Organization");//机构
+            GetOrgAndAuthorInfo("AuthorFilter");//学者
+        }, 500);
+        //$(".itemm").eq(0).click();
+        relevantArticleMagazine(keyword, 6, true);
+
+        //到参考文献 start at 20170609
+        initSelectedRefItemsBindEvent();
+        initSelectedRefItemsForCookie();
+    });
+    function GetOrgAndAuthorInfo(field) {
+        var param = getSearchConditionParam(null, channelType, field);
+        $.ajax({
+            type: "POST",
+            url: fileterResultServerApiUrl,
+            data: param,
+            dataType: "json",
+            success: function (data) {
+                if (field.toLowerCase() == "organization") {
+                    if (data && data.length > 0) {
+                        InitOrgList(data);
+                        $("div[name='xgjg'],h1[name='xgjg']").show();
+                    }
+                    else {
+                        $("div[name='xgjg'],h1[name='xgjg']").hide();
+                    }
+
+                }
+                else {
+                    if (data && data.length > 0) {
+                        if (data.length > 10) {
+                            data = data.slice(0, 10);
+                        }
+                    }
+                    GetBarChartsData(data);
+                }
+            }
+        });
+    }
+    //初始化右侧机构
+    function InitOrgList(data) {
+        var p = "";
+        for (var i = 0; i < data.length; i++) {
+            if (i <= 9) {
+                var item = data[i];
+                var FilterName = item.FilterName;
+                var name = FilterName;
+                if (FilterName && FilterName.length > 8) {
+                    name = FilterName.autoCutStr(0, 8, true);
+                }
+                p += "<p class=\"jg-rr\"> .<a  name=\"aOrg\" style=\"cursor:pointer;\" title=\"" + FilterName + "\" target=\"_blank\" code=\"" + item.TypeCode + "\">" + name + "</a><p>";
+            }
+
+        }
+        $("#rightOrg").html(p);
+    }
+    function RightSubjectInfo(content) {
+        var _html = "";
+        var subTitle = "";
+        var subTip = "";
+        $.ajax({
+            url: "../Institution/GetRightSubject", data: { "content": encodeURIComponent(content), "type": 1 },
+            dataType: 'json', type: "POST",
+            success: function (result) {
+                if (result.errorCode == 200) {
+                    if (result.Data.length > 0) {
+                        for (var i = 0; i < result.Data.length; i++) {
+                            $("#subjectName").html("热门学科");
+                            if (result.Data[i].SubjectName.length > 7) {
+                                subTitle = result.Data[i].SubjectName.autoCutStr(0, 7, true);
+                                subTip = result.Data[i].SubjectName;
+                            }
+                            else {
+                                subTitle = result.Data[i].SubjectName;
+                                subTip = "";
+                            }
+                            _html += '<p class="jg-rr">·<a href="' + result.Data[i].SubjectUrl + '" title="' + subTip + '" target="_blank">' + subTitle + '</a></p>';
+                        }
+                        $("div#mainSubject").html(_html);
+                    }
+                }
+
+            }
+        });
+    }
+</script>
+
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1257838124'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1257838124%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

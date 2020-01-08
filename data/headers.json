@@ -1,0 +1,13 @@
+{
+    "Host": "yuanjian.cnki.com.cn",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0",
+    "Accept": "text/html, */*; q=0.01",
+    "Accept-Language": "zh-CN,en-US;q=0.7,en;q=0.3",
+    "Accept-Encoding": "gzip, deflate",
+    "X-Requested-With": "XMLHttpRequest",
+    "Origin": "http://yuanjian.cnki.com.cn",
+    "Referer": "http://yuanjian.cnki.com.cn/Search/Result",
+    "Cookie": "SID=110105; UM_distinctid=16f86a11acc9-0b8bdba288f239-4c302978-ea600-16f86a11acdc; CNZZDATA1257838124=1918816695-1578506585-%7C1578506585; KEYWORD=%E6%83%85%E6%8A%A5%E5%AD%A6%E6%8A%A5",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Connection": "keep-alive"
+}
