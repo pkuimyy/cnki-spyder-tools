@@ -1,0 +1,23 @@
+{
+  "name": "cnki-spyder-tools",
+  "version": "1.0.0",
+  "description": "一个cnki的爬虫合集",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkuimyy/cnki-spyder-tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkuimyy/cnki-spyder-tools/issues"
+  },
+  "homepage": "https://github.com/pkuimyy/cnki-spyder-tools#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
