@@ -9,10 +9,10 @@ const cheerio = require('cheerio');
 
 
 const options = {
-    proxy: {
-        host: '127.0.0.1',
-        port: '8888'
-    },
+    // proxy: {
+    //     host: '127.0.0.1',
+    //     port: '8888'
+    // },
     method: 'GET',
     url: 'http://www.cnki.com.cn/Article/CJFDTOTAL-QBXB201501005.htm'
 };
@@ -50,6 +50,6 @@ function parse(data) {
         abstract, institution, foundation, class_code];
     result = result.map(item => {
         return item.replace(',', '，').replace(/\s+/g, ' ').trim();
-    }).join(',');
+    }).join('\n');
     console.log(result);
 }

@@ -12,10 +12,10 @@ const form = {
 }
 
 const options = {
-    proxy: {
-        host: '127.0.0.1',
-        port: '8888'
-    },
+    // proxy: {
+    //     host: '127.0.0.1',
+    //     port: '8888'
+    // },
     method: 'POST',
     headers: headers,
     data: qs.stringify(form),
