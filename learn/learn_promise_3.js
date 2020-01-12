@@ -3,7 +3,7 @@
 const axios = require('axios');
 const qs = require('querystring');
 const cheerio = require('cheerio');
-const headers = require('./data/headers.json');
+const headers = require('../data/headers.json');
 
 function parse_1(data) {
     const $ = cheerio.load(data);
@@ -61,12 +61,6 @@ function parse_3(data) {
     return result;
 }
 
-function flaten_1(data) {
-    return data.map(item => item['value']).reduce((prev, curr) => {
-        return prev.concat(curr);
-    }, []);
-}
-
 const app = journal => {
     const form = {
         searchType: 'MulityTermsSearch',
@@ -79,18 +73,20 @@ const app = journal => {
         data: qs.stringify(form),
         url: 'http://yuanjian.cnki.com.cn/Search/Result'
     };
-    return axios(options).then(response => new Promise(resolve => {
-        const result = parse_1(response.data);
-        result['journal'] = journal;
-        resolve(result);
-    })).catch((error) => {
-        console.error(error);
-    });
+    return axios(options)
+        .then(response => new Promise(resolve => {
+            const result = parse_1(response.data);
+            result['journal'] = journal;
+            resolve(result);
+        }))
+        .catch((error) => {
+            console.error(error);
+        });
 }
 
-app('情报学报').then(result => {
+app('情报学报').then(data => {
     const pages_num = []
-    for (let i = 1; i <= result['pages_num'] / 50; i++) {
+    for (let i = 1; i <= data['pages_num'] / 50; i++) {
         pages_num.push(i);
     }
     const promise_list = pages_num.map(page => {
@@ -98,7 +94,7 @@ app('情报学报').then(result => {
             searchType: 'MulityTermsSearch',
             ParamIsNullOrEmpty: 'true',
             Islegal: 'false',
-            Originate: result['journal'],
+            Originate: data['journal'],
             Order: '1',
             Page: page
         }
@@ -108,29 +104,36 @@ app('情报学报').then(result => {
             data: qs.stringify(form),
             url: 'http://yuanjian.cnki.com.cn/Search/ListResult'
         };
-        return axios(options).then(response => new Promise(resolve => {
-            const result = parse_2(response.data);
-            resolve(result);
-        })).catch(error => {
-            console.error(error);
-        });
+        return axios(options)
+            .then(response => new Promise(resolve => {
+                const result = parse_2(response.data);
+                resolve(result);
+            }))
+            .then(result => {
+                const promise_list = result.map(url => {
+                    const options = {
+                        method: 'GET',
+                        url: url
+                    };
+                    return axios(options)
+                        .then(response => {
+                            const result = parse_3(response.data);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        })
+                })
+                return Promise.allSettled(promise_list)
+                    // 问题出在这里，return一个then之后的Promise会出现问题
+                    .then(result => new Promise(resolve => {
+                        resolve(result);
+                    }));
+            })
+            .then(result => {
+                console.log(result);
+            })
     });
-    return Promise.allSettled(promise_list);
-}).then(result => {
-    const link_list = flaten_1(result);
-    const promise_list = link_list.map(link => {
-        const options = {
-            method: 'GET',
-            url: link
-        };
-        return axios(options).then(response => new Promise(resolve => {
-            const result = parse_3(response.data);
-            resolve(result);
-        })).catch(error => {
-            console.error(error);
-        });
-    })
-    return Promise.allSettled(promise_list);
-}).then(result => {
-    console.log(result);
+    Promise.allSettled(promise_list).then(result => {
+        // console.log(result);
+    });
 });
