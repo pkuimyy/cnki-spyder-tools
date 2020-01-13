@@ -116,7 +116,9 @@ const app = journal => {
     return axios(options).then(response => new Promise(resolve => {
         const result = parse_1(response.data);
         result['journal'] = journal;
-        logger_c.info(`${journal} step_1 success`)
+        resolve(result);
+    })).then(result => new Promise(resolve => {
+        logger_c.info(`${journal} step_1 success`);
         resolve(result);
     })).catch((error) => {
         console.error(error);
@@ -145,6 +147,8 @@ app('情报学报').then(result => {
         };
         return axios(options).then(response => new Promise(resolve => {
             const result = parse_2(response.data);
+            resolve(result);
+        })).then(result => new Promise(resolve => {
             logger_f.info(`${form.Originate} ${page} step_2 success`);
             logger_c.info(`${form.Originate} ${page} step_2 success`);
             fs.appendFileSync(mapping_file, `${form.Originate},${page},${result.join('||')}\n`)
@@ -163,16 +167,14 @@ app('情报学报').then(result => {
         };
         return axios(options).then(response => new Promise(resolve => {
             const result = parse_3(response.data);
+            resolve(result);
+        })).then(result => new Promise(() => {
             logger_f.info(`${options.url} step_3 success`);
             logger_c.info(`${options.url} step_3 success`);
             fs.appendFileSync(result_file, `${result.join(',')}\n`);
-            resolve(result);
         })).catch(error => {
             console.error(error);
         });
     })
-    return Promise.allSettled(promise_list);
-}).finally(() => {
-    logger_c.info('all done!');
-    logger_f.info('all done!');
-});
+    Promise.allSettled(promise_list);
+})
