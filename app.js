@@ -62,7 +62,9 @@ function parse_3(data) {
 }
 
 function flaten_1(data) {
-    return data.map(item => item['value']).reduce((prev, curr) => {
+    return data.filter(item => {
+        return item['status'] === "fulfilled"
+    }).map(item => item['value']).reduce((prev, curr) => {
         return prev.concat(curr);
     }, []);
 }
