@@ -3,7 +3,39 @@
 const axios = require('axios');
 const qs = require('querystring');
 const cheerio = require('cheerio');
-const headers = require('./data/headers.json');
+const headers = require('./headers.json');
+const log4js = require('log4js');
+const fs = require('fs');
+
+const mapping_file = './result/mapping.csv';
+const result_file = './result/result.csv';
+
+if (fs.existsSync(mapping_file)) {
+    fs.unlinkSync(result_file)
+}
+if (fs.existsSync(result_file)) {
+    fs.unlinkSync(result_file);
+}
+const result_header = ['journal_link', 'journal_name',
+    'publish_year', 'title', 'authors',
+    'abstract', 'institution',
+    'foundation', 'class_code'
+];
+fs.writeFileSync(result_file, `${result_header.join(',')}\n`);
+
+log4js.configure({
+    appenders: {
+        log_file: { type: 'file', filename: './log/app.log' },
+        log_console: { type: 'console' }
+    },
+    categories: {
+        for_machine: { appenders: ['log_file'], level: 'info' },
+        for_human: { appenders: ['log_console'], level: 'info' },
+        default: { appenders: ['log_console'], level: 'info' }
+    }
+})
+const logger_f = log4js.getLogger('for_machine');
+const logger_c = log4js.getLogger('for_human');
 
 function parse_1(data) {
     const $ = cheerio.load(data);
@@ -56,8 +88,8 @@ function parse_3(data) {
         publish_year, title, authors,
         abstract, institution, foundation, class_code];
     result = result.map(item => {
-        return item.replace(',', '，').replace(/\s+/g, ' ').trim();
-    }).join('\n');
+        return item.replace(/,/g, '，').replace(/\s+/g, ' ').trim();
+    });
     return result;
 }
 
@@ -84,6 +116,7 @@ const app = journal => {
     return axios(options).then(response => new Promise(resolve => {
         const result = parse_1(response.data);
         result['journal'] = journal;
+        logger_c.info(`${journal} step_1 success`)
         resolve(result);
     })).catch((error) => {
         console.error(error);
@@ -92,7 +125,7 @@ const app = journal => {
 
 app('情报学报').then(result => {
     const pages_num = []
-    for (let i = 1; i <= result['pages_num'] / 50; i++) {
+    for (let i = 1; i <= result['pages_num']; i++) {
         pages_num.push(i);
     }
     const promise_list = pages_num.map(page => {
@@ -112,6 +145,9 @@ app('情报学报').then(result => {
         };
         return axios(options).then(response => new Promise(resolve => {
             const result = parse_2(response.data);
+            logger_f.info(`${form.Originate} ${page} step_2 success`);
+            logger_c.info(`${form.Originate} ${page} step_2 success`);
+            fs.appendFileSync(mapping_file, `${form.Originate},${page},${result.join('||')}\n`)
             resolve(result);
         })).catch(error => {
             console.error(error);
@@ -127,12 +163,16 @@ app('情报学报').then(result => {
         };
         return axios(options).then(response => new Promise(resolve => {
             const result = parse_3(response.data);
+            logger_f.info(`${options.url} step_3 success`);
+            logger_c.info(`${options.url} step_3 success`);
+            fs.appendFileSync(result_file, `${result.join(',')}\n`);
             resolve(result);
         })).catch(error => {
             console.error(error);
         });
     })
     return Promise.allSettled(promise_list);
-}).then(result => {
-    console.log(result);
+}).finally(() => {
+    logger_c.info('all done!');
+    logger_f.info('all done!');
 });
