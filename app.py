@@ -1,16 +1,37 @@
 import requests
 from bs4 import BeautifulSoup
-import time
+from requests.adapters import HTTPAdapter
 import json
 import re
 import math
 from pprint import pprint as fprint
+import logging
+
+logging.basicConfig(filename="./log/app_py.log", level=logging.WARN)
+
+s = requests.Session()
+s.mount("http://", HTTPAdapter(max_retries=5))
+s.mount("https://", HTTPAdapter(max_retries=5))
 
 
 class App:
     def __init__(self):
         HEADERS_FILE = "./headers.json"
         JOURNALS_FILE = "./journals.json"
+        self.RESULT_FILE = "./result/result_py.csv"
+        CSV_HEADERS = [
+            "journal_name",
+            "publish_year",
+            "title",
+            "authors",
+            "abstract",
+            "institution",
+            "foundation",
+            "class_code",
+        ]
+
+        with open(self.RESULT_FILE, "w", encoding="utf-8") as f:
+            f.write(f"{','.join(CSV_HEADERS)}\n")
         with open(JOURNALS_FILE, encoding="utf-8") as f:
             self.ALL_JOURNAL = json.loads(f.read())
         with open(HEADERS_FILE, encoding="utf-8") as f:
@@ -19,7 +40,12 @@ class App:
     def get_pages_num(self, journal):
         form = {"searchType": "MulityTermsSearch", "Originate": journal, "Order": "1"}
         url = "http://yuanjian.cnki.com.cn/Search/Result"
-        response = requests.post(url, headers=self.HEADERS, data=form, timeout=5)
+        try:
+            response = s.post(url, headers=self.HEADERS, data=form, timeout=10)
+        except requests.exceptions.RequestException as e:
+            print(e)
+            logging.warn(f"[get_pages_num] fail {journal}")
+            return 0
         bs = BeautifulSoup(response.text, "html.parser")
         records_per_page = 20
         records_num = int(bs.select_one("#hidTotalCount")["value"])
@@ -36,13 +62,23 @@ class App:
             "Page": page_num,
         }
         url = "http://yuanjian.cnki.com.cn/Search/ListResult"
-        response = requests.post(url, headers=self.HEADERS, data=form, timeout=5)
+        try:
+            response = s.post(url, headers=self.HEADERS, data=form, timeout=10)
+        except requests.exceptions.RequestException as e:
+            print(e)
+            logging.warn(f"[get_link_list] fail {journal} {page_num}")
+            return []
         bs = BeautifulSoup(response.text, "html.parser")
         links = [tag["href"] for tag in bs.select("a.left[target][title]")]
         return links
 
-    def get_biblio(self, link):
-        response = requests.get(link, timeout=5)
+    def get_biblio(self, link, journal, page_num):
+        try:
+            response = s.get(link, timeout=10)
+        except requests.exceptions.RequestException as e:
+            print(e)
+            logging.warn(f"[get_biblio] fail {journal} {page_num} {link}")
+            return []
         bs = BeautifulSoup(response.text, "html.parser")
         journal = bs.select_one(
             "#content > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > b:nth-child(1)"
@@ -76,16 +112,17 @@ class App:
 
     def run(self):
         for journal in self.ALL_JOURNAL:
-            if journal != "情报学报":
-                continue
+            # if journal != "情报学报":
+            #     continue
             pages_num = self.get_pages_num(journal)
             for page_num in range(1, pages_num + 1):
-                if page_num >= 2:
-                    continue
+                # if page_num >= 2:
+                #     continue
                 link_list = self.get_link_list(journal, page_num)
                 for link in link_list:
-                    biblio = self.get_biblio(link)
-                    print(biblio)
+                    biblio = self.get_biblio(link, journal, page_num)
+                    with open(self.RESULT_FILE, "a", encoding="utf-8", newline="") as f:
+                        f.write(f"{','.join(biblio)}\n")
 
 
 if __name__ == "__main__":
