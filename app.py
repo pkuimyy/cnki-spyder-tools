@@ -6,6 +6,7 @@ import re
 import math
 from pprint import pprint as fprint
 import logging
+from tqdm import tqdm
 
 
 # 保证log的文件是utf-8编码，有更优雅的方法，但是懒得折腾了
@@ -161,12 +162,14 @@ class App:
 
     def run(self):
         for journal in self.ALL_JOURNAL:
-            if journal != "情报学报":
-                continue
+            # if journal != "情报学报":
+            #     continue
+            print(journal)
             pages_num = self.get_pages_num(journal)
-            for page_num in range(1, pages_num + 1):
-                if page_num >= 2:
-                    continue
+            pbar = tqdm(range(1, pages_num + 1))
+            for page_num in pbar:
+                # if page_num >= 3:
+                #     continue
                 link_list = self.get_link_list(journal, page_num)
                 for link in link_list:
                     biblio = self.get_biblio(link, journal, page_num)
