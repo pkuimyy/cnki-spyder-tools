@@ -166,7 +166,7 @@ class App:
             #     continue
             print(journal)
             pages_num = self.get_pages_num(journal)
-            pbar = tqdm(range(1, pages_num + 1))
+            pbar = tqdm(range(1, pages_num + 1), ncols=80)
             for page_num in pbar:
                 # if page_num >= 3:
                 #     continue
