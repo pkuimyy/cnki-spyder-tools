@@ -7,8 +7,19 @@ import math
 from pprint import pprint as fprint
 import logging
 
-logging.basicConfig(filename="./log/app_py.log", level=logging.WARN)
 
+# 保证log的文件是utf-8编码，有更优雅的方法，但是懒得折腾了
+with open("./log/app.log", encoding="utf-8", mode="w") as f:
+    f.write("start\n")
+logging.basicConfig(
+    format="%(asctime)s %(levelname)s %(message)s",
+    filename="./log/app_py.log",
+    level=logging.WARN,
+    filemode="w",
+    datefmt="%a, %d %b %Y %H:%M:%S",
+)
+
+# 失败后自动重发机制
 s = requests.Session()
 s.mount("http://", HTTPAdapter(max_retries=5))
 s.mount("https://", HTTPAdapter(max_retries=5))
@@ -20,6 +31,7 @@ class App:
         JOURNALS_FILE = "./journals.json"
         self.RESULT_FILE = "./result/result_py.csv"
         CSV_HEADERS = [
+            "link",
             "journal_name",
             "publish_year",
             "title",
@@ -44,11 +56,16 @@ class App:
             response = s.post(url, headers=self.HEADERS, data=form, timeout=10)
         except requests.exceptions.RequestException as e:
             print(e)
-            logging.warn(f"[get_pages_num] fail {journal}")
+            logging.warning(f"[get_pages_num] fail {journal}")
             return 0
         bs = BeautifulSoup(response.text, "html.parser")
         records_per_page = 20
-        records_num = int(bs.select_one("#hidTotalCount")["value"])
+        try:
+            records_num = int(bs.select_one("#hidTotalCount")["value"])
+        except:
+            logging.error(f"[get_page_num] fail {journal} cant't get records_num")
+            return 0
+
         pages_num = math.ceil(records_num / records_per_page)
         return pages_num
 
@@ -66,10 +83,15 @@ class App:
             response = s.post(url, headers=self.HEADERS, data=form, timeout=10)
         except requests.exceptions.RequestException as e:
             print(e)
-            logging.warn(f"[get_link_list] fail {journal} {page_num}")
+            logging.warning(f"[get_link_list] fail {journal} {page_num}")
             return []
         bs = BeautifulSoup(response.text, "html.parser")
-        links = [tag["href"] for tag in bs.select("a.left[target][title]")]
+        try:
+            links = [tag["href"] for tag in bs.select("a.left[target][title]")]
+        except:
+            logging.error(f"[get_link_list] fail {journal} {page_num} can't get links")
+            return []
+
         return links
 
     def get_biblio(self, link, journal, page_num):
@@ -77,20 +99,46 @@ class App:
             response = s.get(link, timeout=10)
         except requests.exceptions.RequestException as e:
             print(e)
-            logging.warn(f"[get_biblio] fail {journal} {page_num} {link}")
+            logging.warning(f"[get_biblio] fail {journal} {page_num} {link}")
             return []
+
         bs = BeautifulSoup(response.text, "html.parser")
-        journal = bs.select_one(
-            "#content > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > b:nth-child(1)"
-        ).string
-        publish_year = bs.select_one("font[color]").string
-        title = bs.select_one(".xx_title").string
-        tmp = bs.select("#content > div:nth-child(2) > div:nth-child(3) > a")
-        authors = ";".join([tag.string.strip() for tag in tmp])
-        tmp = bs.select_one("div.xx_font:nth-child(4)").stripped_strings
-        abstract = "".join(list(tmp))
-        tmp = bs.select_one("div.xx_font:nth-child(5)").stripped_strings
-        others = "".join(tmp)
+
+        try:
+            journal = bs.select_one(
+                "#content > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > b:nth-child(1)"
+            ).string
+        except:
+            journal = "NULL"
+
+        try:
+            publish_year = bs.select_one("font[color]").string
+        except:
+            publish_year = "NULL"
+
+        try:
+            title = bs.select_one(".xx_title").string
+        except:
+            title = "NULL"
+
+        try:
+            tmp = bs.select("#content > div:nth-child(2) > div:nth-child(3) > a")
+            authors = ";".join([tag.string.strip() for tag in tmp])
+        except:
+            authors = "NULL"
+
+        try:
+            tmp = bs.select_one("div.xx_font:nth-child(4)").stripped_strings
+            abstract = "".join(list(tmp))
+        except:
+            abstract = "NULL"
+
+        try:
+            tmp = bs.select_one("div.xx_font:nth-child(5)").stripped_strings
+            others = "".join(tmp)
+        except:
+            others = ""
+
         tmp = re.search(r"(【作者单位】.*?)【", others)
         institution = tmp.group(1) if tmp else "NULL"
         tmp = re.search(r"(【基金】.*?)【", others)
@@ -98,6 +146,7 @@ class App:
         tmp = re.search(r"(【分类号】.*?)$", others)
         class_code = tmp.group(1) if tmp else "NULL"
         result = [
+            link,
             journal,
             publish_year,
             title,
@@ -112,12 +161,12 @@ class App:
 
     def run(self):
         for journal in self.ALL_JOURNAL:
-            # if journal != "情报学报":
-            #     continue
+            if journal != "情报学报":
+                continue
             pages_num = self.get_pages_num(journal)
             for page_num in range(1, pages_num + 1):
-                # if page_num >= 2:
-                #     continue
+                if page_num >= 2:
+                    continue
                 link_list = self.get_link_list(journal, page_num)
                 for link in link_list:
                     biblio = self.get_biblio(link, journal, page_num)
