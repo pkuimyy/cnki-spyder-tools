@@ -19,6 +19,6 @@
   "dependencies": {
     "axios": "^0.19.1",
     "cheerio": "^1.0.0-rc.3",
-    "log4js": "^6.1.0"
+    "log4js": "^6.4.0"
   }
 }
